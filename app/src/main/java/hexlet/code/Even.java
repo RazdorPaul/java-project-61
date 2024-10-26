@@ -8,20 +8,29 @@ class Even {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String userName = sc.next();
-        sc.close();
         System.out.println("Hello, " + userName);
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
+        theGame(userName, sc);
+        sc.close();;
     }
 
-    private static void theGame() {
-        int MAX = 1000;
-        Scanner sc = new Scanner(System.in);
+    private static void theGame(String name, Scanner sc) {
+        int maxValue = 1001;
         for (var i = 0; i < 3; i++) {
-            int numQuest = (int)(Math.random() * MAX) + 1;
-            System.out.println("Qestion:" + numQuest);
+            int numQuest = (int)(Math.random() * maxValue);
+            String even = numQuest % 2 == 0 ? "yes" : "no";
+            System.out.println("Question: " + numQuest);
             System.out.print("Your answer: ");
             String answer = sc.next();
+            if (even.equals(answer)) {
+                System.out.println("Correct!");
+            } else {
+                System.out.println("'" + answer + "'" + "is wrong answer ;(. "
+                                    + "Correct answer was" + "'" + even + "'");
+                System.out.println("Let's try again, " + name);
+                return;
+            }
         }
+        System.out.println("Congratulations, " + name);
     }
 }

@@ -12,19 +12,19 @@ public class App {
         Scanner sc = new Scanner(System.in);
         var numGame = sc.next();
         switch (numGame) {
-            case "0": {
-                System.out.println("Goodbye, program is done!");
+            case "0" : {
                 break;
             }
-            case "1": {
+            case "1" : {
                 break;
             }
-            case "2": {
+            case "2" : {
                 Even.gameEven();
                 break;
             }
             default:
                 System.out.println("This game is not exist! Program close!");
         }
+        System.out.println("Goodbye, program is done!");
     }
 }
