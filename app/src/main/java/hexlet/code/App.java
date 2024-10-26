@@ -16,6 +16,7 @@ public class App {
                 break;
             }
             case "1" : {
+                Greet.greeting();
                 break;
             }
             case "2" : {
