@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 class Engine {
     static String username;
@@ -12,6 +13,7 @@ class Engine {
                 {"1", " - Greet"},
                 {"2", " - Even", "Answer 'yes' if the number is even, otherwise answer 'no'."},
                 {"3", " - Calc", "What is the result of the expression?"},
+                {"4", " - GCD", "Find the greatest common divisor of given numbers."},
                 {"0", " - Exit"}
         };
         for (int i = 0; i < listGames.length; i++) {
@@ -46,6 +48,10 @@ class Engine {
             if (numGame == 3) {
                 quest = Calc.getQuestion();
                 correctAnswer = Calc.getAnswer(quest);
+            }
+            if (numGame == 4) {
+                quest = GCD.getQuestion();
+                correctAnswer = GCD.getAnswer(quest);
             }
             System.out.println("Question: " + quest);
             System.out.print("Your answer: ");
