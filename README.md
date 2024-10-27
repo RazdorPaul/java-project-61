@@ -6,3 +6,4 @@ Work of App Even on https://asciinema.org/a/gMJfDWoEEPu8xPIMU72QxciPi
 
 Work of App Calc on https://asciinema.org/a/eHbjCycmB590LXitdcJMFxuFu
 
+Work of App GCD on https://asciinema.org/a/fNIKomHk9fFWGQdF1KDDlbQKm
