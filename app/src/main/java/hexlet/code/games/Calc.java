@@ -3,10 +3,10 @@ package hexlet.code.games;
 public class Calc {
     public static String getQuestion() {
         int maxValue = 201;
-        int operand1 = (int)(Math.random() * maxValue) - 100;
-        int operand2 = (int)(Math.random() * maxValue) - 100;
+        int operand1 = (int) (Math.random() * maxValue) - 100;
+        int operand2 = (int) (Math.random() * maxValue) - 100;
         String quest = Integer.toString(operand1);
-        switch ((int)(Math.random() * 3)) {
+        switch ((int) (Math.random() * 3)) {
             case 0 -> {
                 if (operand2 < 0) {
                     operand2 *= -1;
@@ -23,7 +23,10 @@ public class Calc {
                     quest += " - ";
                 }
             }
-            case 2 -> quest += " * ";
+            case 2 -> {
+                quest += " * ";
+            }
+            default -> { }
         }
 
         quest += Integer.toString(operand2);

@@ -3,8 +3,8 @@ package hexlet.code.games;
 public class GCD {
     public static String getQuestion() {
         int maxValue = 100;
-        String quest = Integer.toString((int)(Math.random() * maxValue) + 1) + " ";
-        quest += Integer.toString((int)(Math.random() * maxValue) + 1);
+        String quest = Integer.toString((int) (Math.random() * maxValue) + 1) + " ";
+        quest += Integer.toString((int) (Math.random() * maxValue) + 1);
         return quest;
     }
 
@@ -12,7 +12,7 @@ public class GCD {
         int num1 = Integer.parseInt(quest.split(" ")[0]);
         int num2 = Integer.parseInt(quest.split(" ")[1]);
         int gcd = Math.min(num1, num2);
-        while(gcd > 0) {
+        while (gcd > 0) {
             if (num1 % gcd == 0 & num2 % gcd == 0) {
                 break;
             }

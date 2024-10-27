@@ -4,7 +4,7 @@ public class Even {
 
     public static String getQuestion() {
         var maxValue = 1001;
-        var numQuest = (int)(Math.random() * maxValue);
+        var numQuest = (int) (Math.random() * maxValue);
         return Integer.toString(numQuest);
     }
 
