@@ -2,15 +2,15 @@ package hexlet.code.games;
 
 public class Progression {
     public static String getQuestion() {
-        final int SIZE = 10;
-        final int MAX_VALUE = 101;
-        final int SHIFT = 50;
+        final int size = 10;
+        final int maxValue = 101;
+        final int shift = 50;
 
-        int startItem = (int) (Math.random() * MAX_VALUE - SHIFT);
-        int step = (int) (Math.random() * (SIZE + 1));
-        int hidden = (int) (Math.random() * SIZE);
+        int startItem = (int) (Math.random() * maxValue - shift);
+        int step = (int) (Math.random() * (size + 1));
+        int hidden = (int) (Math.random() * size);
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < SIZE; i++) {
+        for (int i = 0; i < size; i++) {
             if (i == hidden) {
                 result.append(".." + " ");
             } else {

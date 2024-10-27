@@ -40,12 +40,12 @@ class Engine {
     }
 
     public static void startGame(String title, int numGame) {
-        final int COUNT_GAME = 3;
+        final int countGame = 3;
         System.out.println(title);
         String quest = "";
         String correctAnswer = "";
         String userAnswer = "";
-        for (int i = 0; i < COUNT_GAME; i++) {
+        for (int i = 0; i < countGame; i++) {
             if (numGame == 2) {
                 quest = Even.getQuestion();
                 correctAnswer = Even.getAnswer(quest);
