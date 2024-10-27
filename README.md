@@ -10,3 +10,5 @@ Work of App GCD on https://asciinema.org/a/fNIKomHk9fFWGQdF1KDDlbQKm
 
 Work of App Progression on https://asciinema.org/a/Iwfj8vAAFEvy3BhRRM9LwyUFe
 
+Work of App Prime on https://asciinema.org/a/qFkAxSOUSbXkalibFV781Xsu3
+

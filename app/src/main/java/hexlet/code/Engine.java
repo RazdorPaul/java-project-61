@@ -1,9 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 class Engine {
     static String username;
@@ -16,6 +17,7 @@ class Engine {
                 {"3", " - Calc", "What is the result of the expression?"},
                 {"4", " - GCD", "Find the greatest common divisor of given numbers."},
                 {"5", " - Progression", "What number is missing in the progression?"},
+                {"6", " - Prime", "Answer 'yes' if given number is prime. Otherwise answer 'no'."},
                 {"0", " - Exit"}
         };
         for (int i = 0; i < listGames.length; i++) {
@@ -58,6 +60,10 @@ class Engine {
             if (numGame == 5) {
                 quest = Progression.getQuestion();
                 correctAnswer = Progression.getAnswer(quest);
+            }
+            if (numGame == 6) {
+                quest = Prime.getQuestion();
+                correctAnswer = Prime.getAnswer(quest);
             }
             System.out.println("Question: " + quest);
             System.out.print("Your answer: ");
