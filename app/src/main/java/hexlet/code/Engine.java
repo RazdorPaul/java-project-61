@@ -20,8 +20,8 @@ class Engine {
                 {"6", " - Prime", "Answer 'yes' if given number is prime. Otherwise answer 'no'."},
                 {"0", " - Exit"}
         };
-        for (int i = 0; i < listGames.length; i++) {
-            System.out.println("\t" + listGames[i][0] + listGames[i][1]);
+        for (String[] listGame : listGames) {
+            System.out.println("\t" + listGame[0] + listGame[1]);
         }
         System.out.print("Your choice: ");
         choiceGame = Greet.getChoice();
@@ -36,35 +36,38 @@ class Engine {
         if (choiceGame == 1) {
             return;
         }
-        startGame(listGames[choiceGame - 1][2], choiceGame);
+        startGame(listGames[choiceGame - 1]);
     }
 
-    public static void startGame(String title, int numGame) {
+    public static void startGame(String[] game) {
         final int countGame = 3;
-        System.out.println(title);
+        System.out.println(game[2]);
         String quest = "";
         String correctAnswer = "";
-        String userAnswer = "";
+        String userAnswer;
         for (int i = 0; i < countGame; i++) {
-            if (numGame == 2) {
-                quest = Even.getQuestion();
-                correctAnswer = Even.getAnswer(quest);
-            }
-            if (numGame == 3) {
-                quest = Calc.getQuestion();
-                correctAnswer = Calc.getAnswer(quest);
-            }
-            if (numGame == 4) {
-                quest = GCD.getQuestion();
-                correctAnswer = GCD.getAnswer(quest);
-            }
-            if (numGame == 5) {
-                quest = Progression.getQuestion();
-                correctAnswer = Progression.getAnswer(quest);
-            }
-            if (numGame == 6) {
-                quest = Prime.getQuestion();
-                correctAnswer = Prime.getAnswer(quest);
+            switch (Integer.parseInt(game[0])) {
+                case 2 -> {
+                    quest = Even.getQuestion();
+                    correctAnswer = Even.getAnswer(quest);
+                }
+                case 3 -> {
+                    quest = Calc.getQuestion();
+                    correctAnswer = Calc.getAnswer(quest);
+                }
+                case 4 -> {
+                    quest = GCD.getQuestion();
+                    correctAnswer = GCD.getAnswer(quest);
+                }
+                case 5 -> {
+                    quest = Progression.getQuestion();
+                    correctAnswer = Progression.getAnswer(quest);
+                }
+                case 6 -> {
+                    quest = Prime.getQuestion();
+                    correctAnswer = Prime.getAnswer(quest);
+                }
+                default -> { }
             }
             System.out.println("Question: " + quest);
             System.out.print("Your answer: ");
