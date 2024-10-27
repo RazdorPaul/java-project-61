@@ -2,8 +2,8 @@ package hexlet.code.games;
 
 public class Prime {
     public static String getQuestion() {
-        int maxValue = 99;
-        int quest = (int) (Math.random() * maxValue) + 2;
+        final int MAX_VALUE = 99;
+        int quest = (int) (Math.random() * MAX_VALUE) + 2;
         return Integer.toString(quest);
     }
 

@@ -3,8 +3,9 @@ package hexlet.code.games;
 public class Even {
 
     public static String getQuestion() {
-        var maxValue = 1001;
-        var numQuest = (int) (Math.random() * maxValue);
+        final int MAX_VALUE = 1001;
+
+        var numQuest = (int) (Math.random() * MAX_VALUE);
         return Integer.toString(numQuest);
     }
 

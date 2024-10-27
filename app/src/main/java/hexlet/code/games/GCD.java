@@ -2,9 +2,9 @@ package hexlet.code.games;
 
 public class GCD {
     public static String getQuestion() {
-        int maxValue = 100;
-        String quest = Integer.toString((int) (Math.random() * maxValue) + 1) + " ";
-        quest += Integer.toString((int) (Math.random() * maxValue) + 1);
+        final int MAX_VALUE = 100;
+        String quest = Integer.toString((int) (Math.random() * MAX_VALUE) + 1) + " ";
+        quest += Integer.toString((int) (Math.random() * MAX_VALUE) + 1);
         return quest;
     }
 

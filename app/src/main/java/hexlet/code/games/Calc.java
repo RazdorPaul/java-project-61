@@ -1,12 +1,16 @@
 package hexlet.code.games;
 
 public class Calc {
+
     public static String getQuestion() {
-        int maxValue = 201;
-        int operand1 = (int) (Math.random() * maxValue) - 100;
-        int operand2 = (int) (Math.random() * maxValue) - 100;
+        final int MAX_VALUE = 201;
+        final int SHIFT_BORDER = 100;
+        final int AMOUNT_OPERATION = 3;
+
+        int operand1 = (int) (Math.random() * MAX_VALUE) - SHIFT_BORDER;
+        int operand2 = (int) (Math.random() * MAX_VALUE) - SHIFT_BORDER;
         String quest = Integer.toString(operand1);
-        switch ((int) (Math.random() * 3)) {
+        switch ((int) (Math.random() * AMOUNT_OPERATION)) {
             case 0 -> {
                 if (operand2 < 0) {
                     operand2 *= -1;

@@ -7,7 +7,7 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
 class Engine {
-    static String username;
+    private static String username;
 
     public static void setGame() {
         int choiceGame;
@@ -40,11 +40,12 @@ class Engine {
     }
 
     public static void startGame(String title, int numGame) {
+        final int COUNT_GAME = 3;
         System.out.println(title);
         String quest = "";
         String correctAnswer = "";
         String userAnswer = "";
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < COUNT_GAME; i++) {
             if (numGame == 2) {
                 quest = Even.getQuestion();
                 correctAnswer = Even.getAnswer(quest);
