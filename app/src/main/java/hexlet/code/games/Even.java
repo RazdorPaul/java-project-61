@@ -1,15 +1,14 @@
 package hexlet.code.games;
 
 public class Even {
-    public static int quest;
 
-    public static String Question() {
-        int maxValue = 1001;
-        int numQuest = (int)(Math.random() * maxValue);
+    public static String getQuestion() {
+        var maxValue = 1001;
+        var numQuest = (int)(Math.random() * maxValue);
         return Integer.toString(numQuest);
     }
 
-    public static String correctAnswer(String quest) {
+    public static String getAnswer(String quest) {
         return Integer.parseInt(quest) % 2 == 0 ? "yes" : "no";
     }
 }

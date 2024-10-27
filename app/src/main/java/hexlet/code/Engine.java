@@ -1,7 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
-import hexlet.code.Greet;
 
 class Engine {
     static String username;
@@ -15,7 +15,7 @@ class Engine {
                 {"0", " - Exit"}
         };
         for (int i = 0; i < listGames.length; i++) {
-            System.out.println("\t"+listGames[i][0]+listGames[i][1]);
+            System.out.println("\t" + listGames[i][0] + listGames[i][1]);
         }
         System.out.print("Your choice: ");
         choiceGame = Greet.getChoice();
@@ -40,12 +40,15 @@ class Engine {
         String userAnswer = "";
         for (int i = 0; i < 3; i++) {
             if (numGame == 2) {
-                quest = Even.Question();
-                correctAnswer = Even.correctAnswer(quest);
+                quest = Even.getQuestion();
+                correctAnswer = Even.getAnswer(quest);
             }
-            if (numGame == 3) {}
+            if (numGame == 3) {
+                quest = Calc.getQuestion();
+                correctAnswer = Calc.getAnswer(quest);
+            }
             System.out.println("Question: " + quest);
-            System.out.println("Your answer: ");
+            System.out.print("Your answer: ");
             userAnswer = Greet.userInput();
             if (!userAnswer.equals(correctAnswer)) {
                 System.out.println("'" + userAnswer + "'"
