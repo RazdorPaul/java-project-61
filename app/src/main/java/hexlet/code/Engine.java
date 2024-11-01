@@ -7,39 +7,7 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
 class Engine {
-    private static String username;
-
-    public static void setGame() {
-        int choiceGame;
-        String[][] listGames = {
-                {"1", " - Greet"},
-                {"2", " - Even", "Answer 'yes' if the number is even, otherwise answer 'no'."},
-                {"3", " - Calc", "What is the result of the expression?"},
-                {"4", " - GCD", "Find the greatest common divisor of given numbers."},
-                {"5", " - Progression", "What number is missing in the progression?"},
-                {"6", " - Prime", "Answer 'yes' if given number is prime. Otherwise answer 'no'."},
-                {"0", " - Exit"}
-        };
-        for (String[] listGame : listGames) {
-            System.out.println("\t" + listGame[0] + listGame[1]);
-        }
-        System.out.print("Your choice: ");
-        choiceGame = Greet.getChoice();
-        if (choiceGame < 0 | choiceGame > listGames.length) {
-            System.out.println("This game does not exist!");
-            return;
-        }
-        if (choiceGame == 0) {
-            return;
-        }
-        username = Greet.greeting();
-        if (choiceGame == 1) {
-            return;
-        }
-        startGame(listGames[choiceGame - 1]);
-    }
-
-    public static void startGame(String[] game) {
+    public static void startGame(String[] game, String username) {
         final int countGame = 3;
         String nameGame = game[1].trim().split(" ")[1];
         System.out.println(game[2]);
