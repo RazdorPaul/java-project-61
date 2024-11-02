@@ -3,7 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/fd1c1f007b3eb3251603/maintainability)](https://codeclimate.com/github/RazdorPaul/java-project-61/maintainability)
 
 [![asciicast](https://asciinema.org/a/gMJfDWoEEPu8xPIMU72QxciPi.svg)](https://asciinema.org/a/gMJfDWoEEPu8xPIMU72QxciPi)
-[![asciicast]({https://asciinema.org/a/eHbjCycmB590LXitdcJMFxuFu}.svg)]({https://asciinema.org/a/eHbjCycmB590LXitdcJMFxuFu})
-[![asciicast]({https://asciinema.org/a/fNIKomHk9fFWGQdF1KDDlbQKm}.svg)]({https://asciinema.org/a/fNIKomHk9fFWGQdF1KDDlbQKm})
-[![asciicast]({https://asciinema.org/a/Iwfj8vAAFEvy3BhRRM9LwyUFe}.svg)]({https://asciinema.org/a/Iwfj8vAAFEvy3BhRRM9LwyUFe})
-[![asciicast]({https://asciinema.org/a/qFkAxSOUSbXkalibFV781Xsu3}.svg)]({https://asciinema.org/a/qFkAxSOUSbXkalibFV781Xsu3})
+[![asciicast](https://asciinema.org/a/eHbjCycmB590LXitdcJMFxuFu.svg)](https://asciinema.org/a/eHbjCycmB590LXitdcJMFxuFu)
+[![asciicast](https://asciinema.org/a/fNIKomHk9fFWGQdF1KDDlbQKm.svg)](https://asciinema.org/a/fNIKomHk9fFWGQdF1KDDlbQKm)
+[![asciicast](https://asciinema.org/a/Iwfj8vAAFEvy3BhRRM9LwyUFe.svg)](https://asciinema.org/a/Iwfj8vAAFEvy3BhRRM9LwyUFe)
+[![asciicast](https://asciinema.org/a/qFkAxSOUSbXkalibFV781Xsu3.svg)](https://asciinema.org/a/qFkAxSOUSbXkalibFV781Xsu3)
