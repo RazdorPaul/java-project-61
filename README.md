@@ -7,13 +7,3 @@
 [![asciicast]({https://asciinema.org/a/fNIKomHk9fFWGQdF1KDDlbQKm}.svg)]({https://asciinema.org/a/fNIKomHk9fFWGQdF1KDDlbQKm})
 [![asciicast]({https://asciinema.org/a/Iwfj8vAAFEvy3BhRRM9LwyUFe}.svg)]({https://asciinema.org/a/Iwfj8vAAFEvy3BhRRM9LwyUFe})
 [![asciicast]({https://asciinema.org/a/qFkAxSOUSbXkalibFV781Xsu3}.svg)]({https://asciinema.org/a/qFkAxSOUSbXkalibFV781Xsu3})
-Work of App Even on https://asciinema.org/a/gMJfDWoEEPu8xPIMU72QxciPi
-
-Work of App Calc on https://asciinema.org/a/eHbjCycmB590LXitdcJMFxuFu
-
-Work of App GCD on https://asciinema.org/a/fNIKomHk9fFWGQdF1KDDlbQKm
-
-Work of App Progression on https://asciinema.org/a/Iwfj8vAAFEvy3BhRRM9LwyUFe
-
-Work of App Prime on https://asciinema.org/a/qFkAxSOUSbXkalibFV781Xsu3
-
