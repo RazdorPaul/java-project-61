@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-class Greet {
+public class Greet {
     public static String greeting() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");

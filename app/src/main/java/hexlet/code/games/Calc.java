@@ -1,8 +1,31 @@
 package hexlet.code.games;
 
-public class Calc {
+import hexlet.code.Greet;
 
-    public static String getQuestion() {
+public class Calc {
+    public static String startCalc(int gameCount, String nameUser) {
+        System.out.println("What is the result of the expression?");
+        var result = "Congratulations, " + nameUser + "!";
+        for (var i = 0; i < gameCount; i++) {
+            var quest = getQuestion();
+            System.out.println("Question: " + quest);
+            System.out.print("Your answer: ");
+            var answer = Greet.userInput();
+            var correctAnswer = getCorrectAnswer(quest);
+            if (!answer.equals(correctAnswer)) {
+                System.out.println("'" + answer + "'"
+                        + " is wrong answer ;(. Correct answer was "
+                        + "'" + correctAnswer + "'");
+                result = "Let's try again, " + nameUser + "!";
+                break;
+            }
+            System.out.println("Correct!");
+        }
+        return result;
+    }
+
+    private static String getQuestion() {
+
         final int maxValue = 201;
         final int shiftBorder = 100;
         final int amountOperation = 3;
@@ -37,7 +60,7 @@ public class Calc {
         return quest;
     }
 
-    public static String getAnswer(String quest) {
+    private static String getCorrectAnswer(String quest) {
         String[] expression = quest.split(" ");
         int result = Integer.parseInt(expression[0]);
         if (expression[1].equals("+")) {
