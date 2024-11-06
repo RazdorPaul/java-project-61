@@ -18,7 +18,7 @@ public class Even {
     }
 
     private static int getQuestion() {
-        int maxValue = 1000;
+        final int maxValue = 1000;
         return (int) (Math.random() * maxValue) + 1;
     }
 

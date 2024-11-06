@@ -10,25 +10,30 @@ public class App {
     public static void main(String[] args) {
         int countGames = 3;
         System.out.println("Please enter the game number and press Enter. ");
-        System.out.println("\t1 - Greet\n"
-                        + "\t2 - Even\n"
-                        + "\t3 - Calc\n"
-                        + "\t4 - GCD\n"
-                        + "\t5 - Progression\n"
-                        + "\t6 - Prime\n"
-                        + "\t0 - Exit");
+        String[][] listGames = {
+                {"1", "Greet"},
+                {"2", "Even"},
+                {"3", "Calc"},
+                {"4", "GCD"},
+                {"5", "Progression"},
+                {"6", "Prime"},
+                {"0", "Exit"}
+        };
+        for (String[] listGame : listGames) {
+            System.out.println("\t" + listGame[0] + " - " + listGame[1]);
+        }
         System.out.print("Your choice: ");
         int choiceGame = Greet.getChoice();
-        switch (choiceGame) {
-            case 0 -> {
-                return;
-            }
-            case 1 -> Greet.greeting();
-            case 2 -> Even.startEven(countGames);
-            case 3 -> Calc.startCalc(countGames);
-            case 4 -> GCD.startGCD(countGames);
-            case 5 -> Progression.startProgression(countGames);
-            case 6 -> Prime.startPrime(countGames);
+        if (choiceGame == 0) {
+            return;
+        }
+        switch (listGames[choiceGame - 1][1]) {
+            case "Greet" -> Greet.greeting();
+            case "Even" -> Even.startEven(countGames);
+            case "Calc" -> Calc.startCalc(countGames);
+            case "GCD" -> GCD.startGCD(countGames);
+            case "Progression" -> Progression.startProgression(countGames);
+            case "Prime" -> Prime.startPrime(countGames);
             default -> System.out.println("This game is not exist!!!");
         }
     }

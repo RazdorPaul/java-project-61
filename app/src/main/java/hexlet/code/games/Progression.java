@@ -5,11 +5,11 @@ import hexlet.code.Engine;
 public class Progression {
     public static void startProgression(int gameCount) {
         Engine.setUserName("What number is missing in the progression?");
-        var sizeProgression = 10;
-        var maxStep = 10;
-        var minValueStart = -100;
-        var maxValueStart = 100;
-        var hiddenMax = 10;
+        final int sizeProgression = 10;
+        final int maxStep = 10;
+        final int minValueStart = -100;
+        final int maxValueStart = 100;
+        final int hiddenMax = 10;
         for (var i = 0; i < gameCount; i++) {
             var start = (int) (Math.random() * (maxValueStart - minValueStart)) + minValueStart;
             var step = (int) (Math.random() * maxStep) + 1;

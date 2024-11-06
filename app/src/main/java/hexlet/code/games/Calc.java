@@ -17,9 +17,8 @@ public class Calc {
     }
 
     private static String[] getQuestion() {
-
-        int maxValue = 200;
-        int minValue = -100;
+        final int maxValue = 200;
+        final int minValue = -100;
         char[] operators = {'+', '-', '*'};
         int operand1 = (int) (Math.random() * maxValue) + minValue + 1;
         int operand2 = (int) (Math.random() * maxValue) + minValue + 1;
