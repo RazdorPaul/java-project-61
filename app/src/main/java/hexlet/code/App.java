@@ -8,7 +8,7 @@ import hexlet.code.games.Progression;
 
 public class App {
     public static void main(String[] args) {
-        int countGames = 3;
+        final int countGames = 3;
         System.out.println("Please enter the game number and press Enter. ");
         String[][] listGames = {
                 {"1", "Greet"},
