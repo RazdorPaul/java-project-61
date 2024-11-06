@@ -1,46 +1,36 @@
 package hexlet.code.games;
 
-import hexlet.code.Greet;
+import hexlet.code.Engine;
 
 public class Prime {
-    public static String startPrime(int gameCount, String nameUser) {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        var result = "Congratulations, " + nameUser + "!";
+    public static void startPrime(int gameCount) {
+        Engine.setUserName("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         for (var i = 0; i < gameCount; i++) {
-            var quest = getQuestion();
-            System.out.println("Question: " + quest);
-            System.out.print("Your answer: ");
-            var answer = Greet.userInput();
-            var correctAnswer = getCorrectAnswer(quest);
-            if (!answer.equals(correctAnswer)) {
-                System.out.println("'" + answer + "'"
-                        + " is wrong answer ;(. Correct answer was "
-                        + "'" + correctAnswer + "'");
-                result = "Let's try again, " + nameUser + "!";
-                break;
+            var question = getQuestion();
+            var answer = Engine.processGame(Integer.toString(question));
+            var correct = isPrime(question) ? "yes" : "no";
+            if (!Engine.checkGame(answer, correct)) {
+                return;
             }
-            System.out.println("Correct!");
         }
-        return result;
+        Engine.winGame();
     }
 
-    public static String getQuestion() {
-        final int maxValue = 99;
-        int quest = (int) (Math.random() * maxValue) + 2;
-        return Integer.toString(quest);
+    private static int getQuestion() {
+        final int maxValue = 101;
+        return (int) (Math.random() * maxValue) + 1;
     }
 
-    public static String getCorrectAnswer(String quest) {
-        int number = Integer.parseInt(quest);
-        String result = "yes";
+    private static boolean isPrime(int question) {
+        var prime = true;
         int delim = 2;
-        while (delim < number) {
-            if (number % delim == 0) {
-                result = "no";
+        while (delim < question) {
+            if (question % delim == 0) {
+                prime = false;
                 break;
             }
             delim++;
         }
-        return result;
+        return prime;
     }
 }

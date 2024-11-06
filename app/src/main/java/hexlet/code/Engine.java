@@ -1,21 +1,32 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
+public class Engine {
+    private static String username;
 
-class Engine {
-    public static void startGame(String game, String username) {
-        final int countGame = 3;
-        switch (game) {
-            case "Even" -> System.out.println(Even.startEven(countGame, username));
-            case "Calc" -> System.out.println(Calc.startCalc(countGame, username));
-            case "GCD" -> System.out.println(GCD.startGCD(countGame, username));
-            case "Progression" -> System.out.println(Progression.startProgression(countGame, username));
-            case "Prime" -> System.out.println(Prime.startPrime(countGame, username));
-            default -> { }
+    public static void setUserName(String description) {
+        username = Greet.greeting();
+        System.out.println(description);
+    }
+
+    public static String processGame(String question) {
+        System.out.println("Question: " + question);
+        System.out.print("Your answer: ");
+        return Greet.userInput();
+    }
+
+    public static boolean checkGame(String userAnswer, String correctAnswer) {
+        if (!userAnswer.equals(correctAnswer)) {
+            System.out.println("'" + userAnswer + "'"
+                    + " is wrong answer ;(. Correct answer was "
+                    + "'" + correctAnswer + "'");
+            System.out.println("Let's try again, " + username + "!");
+        } else {
+            System.out.println("Correct!");
         }
+        return userAnswer.equals(correctAnswer);
+    }
+
+    public static void winGame() {
+        System.out.println("Congratulations, " + username + "!");
     }
 }

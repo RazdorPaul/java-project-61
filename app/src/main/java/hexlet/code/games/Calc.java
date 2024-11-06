@@ -1,77 +1,54 @@
 package hexlet.code.games;
 
-import hexlet.code.Greet;
+import hexlet.code.Engine;
 
 public class Calc {
-    public static String startCalc(int gameCount, String nameUser) {
-        System.out.println("What is the result of the expression?");
-        var result = "Congratulations, " + nameUser + "!";
+    public static void startCalc(int gameCount) {
+        Engine.setUserName("What is the result of the expression?");
         for (var i = 0; i < gameCount; i++) {
-            var quest = getQuestion();
-            System.out.println("Question: " + quest);
-            System.out.print("Your answer: ");
-            var answer = Greet.userInput();
-            var correctAnswer = getCorrectAnswer(quest);
-            if (!answer.equals(correctAnswer)) {
-                System.out.println("'" + answer + "'"
-                        + " is wrong answer ;(. Correct answer was "
-                        + "'" + correctAnswer + "'");
-                result = "Let's try again, " + nameUser + "!";
-                break;
+            var question = getQuestion();
+            var answer = Engine.processGame(String.join(" ", question));
+            var correct = Integer.toString(getCorrectAnswer(question));
+            if (!Engine.checkGame(answer, correct)) {
+                return;
             }
-            System.out.println("Correct!");
+        }
+        Engine.winGame();
+    }
+
+    private static String[] getQuestion() {
+
+        int maxValue = 200;
+        int minValue = -100;
+        char[] operators = {'+', '-', '*'};
+        int operand1 = (int) (Math.random() * maxValue) + minValue + 1;
+        int operand2 = (int) (Math.random() * maxValue) + minValue + 1;
+        int amountOperation = (int) (Math.random() * operators.length);
+        if (operand2 < 0) {
+            operand2 *= -1;
+            if (operators[amountOperation] == '-') {
+                amountOperation--;
+            }
+            if (operators[amountOperation] == '+') {
+                amountOperation++;
+            }
+        }
+        return new String[]{Integer.toString(operand1),
+                            Character.toString(operators[amountOperation]),
+                            Integer.toString(operand2)};
+    }
+
+    private static int getCorrectAnswer(String[] question) {
+        int result = Integer.parseInt(question[0]);
+        if (question[1].equals("+")) {
+            result += Integer.parseInt(question[2]);
+        }
+        if (question[1].equals("-")) {
+            result -= Integer.parseInt(question[2]);
+        }
+        if (question[1].equals("*")) {
+            result *= Integer.parseInt(question[2]);
         }
         return result;
-    }
-
-    private static String getQuestion() {
-
-        final int maxValue = 201;
-        final int shiftBorder = 100;
-        final int amountOperation = 3;
-
-        int operand1 = (int) (Math.random() * maxValue) - shiftBorder;
-        int operand2 = (int) (Math.random() * maxValue) - shiftBorder;
-        String quest = Integer.toString(operand1);
-        switch ((int) (Math.random() * amountOperation)) {
-            case 0 -> {
-                if (operand2 < 0) {
-                    operand2 *= -1;
-                    quest += " - ";
-                } else {
-                    quest += " + ";
-                }
-            }
-            case 1 -> {
-                if (operand2 < 0) {
-                    operand2 *= -1;
-                    quest += " + ";
-                } else {
-                    quest += " - ";
-                }
-            }
-            case 2 -> {
-                quest += " * ";
-            }
-            default -> { }
-        }
-
-        quest += Integer.toString(operand2);
-        return quest;
-    }
-
-    private static String getCorrectAnswer(String quest) {
-        String[] expression = quest.split(" ");
-        int result = Integer.parseInt(expression[0]);
-        if (expression[1].equals("+")) {
-            result += Integer.parseInt(expression[2]);
-        }
-        if (expression[1].equals("-")) {
-            result -= Integer.parseInt(expression[2]);
-        }
-        if (expression[1].equals("*")) {
-            result *= Integer.parseInt(expression[2]);
-        }
-        return Integer.toString(result);
     }
 }

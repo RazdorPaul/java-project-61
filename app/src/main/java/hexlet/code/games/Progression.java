@@ -1,66 +1,43 @@
 package hexlet.code.games;
 
-import hexlet.code.Greet;
+import hexlet.code.Engine;
 
 public class Progression {
-    public static String startProgression(int gameCount, String nameUser) {
-        System.out.println("What number is missing in the progression?");
-        var result = "Congratulations, " + nameUser + "!";
+    public static void startProgression(int gameCount) {
+        Engine.setUserName("What number is missing in the progression?");
+        var sizeProgression = 10;
+        var maxStep = 10;
+        var minValueStart = -100;
+        var maxValueStart = 100;
+        var hiddenMax = 10;
         for (var i = 0; i < gameCount; i++) {
-            var quest = getQuestion();
-            System.out.println("Question: " + quest);
-            System.out.print("Your answer: ");
-            var answer = Greet.userInput();
-            var correctAnswer = getCorrectAnswer(quest);
-            if (!answer.equals(correctAnswer)) {
-                System.out.println("'" + answer + "'"
-                        + " is wrong answer ;(. Correct answer was "
-                        + "'" + correctAnswer + "'");
-                result = "Let's try again, " + nameUser + "!";
-                break;
+            var start = (int) (Math.random() * (maxValueStart - minValueStart)) + minValueStart;
+            var step = (int) (Math.random() * maxStep) + 1;
+            var numbers = getProgression(start, step, sizeProgression);
+            String[] question = new String[numbers.length];
+            for (var j = 0; j < question.length; j++) {
+                question[j] = Integer.toString(numbers[j]);
             }
-            System.out.println("Correct!");
+            var hidden = (int) (Math.random() * hiddenMax);
+            question[hidden] = "..";
+            var answer = Engine.processGame(String.join(" ", question));
+            var correct = Integer.toString(getHidden(numbers, hidden));
+            if (!Engine.checkGame(answer, correct)) {
+                return;
+            }
         }
-        return result;
+        Engine.winGame();
     }
 
-    public static String getQuestion() {
-        final int size = 10;
-        final int maxValue = 101;
-        final int shift = 50;
-
-        int startItem = (int) (Math.random() * maxValue - shift);
-        int step = (int) (Math.random() * (size + 1));
-        int hidden = (int) (Math.random() * size);
-        String[] result = new String[size];
+    private static int[] getProgression(int start, int step, int size) {
+        int[] numbers = new int[size];
         for (int i = 0; i < size; i++) {
-            var item = i * step + startItem;
-            result[i] = Integer.toString(item);
+            numbers[i] = start + i * step;
         }
-        result[hidden] = "..";
-        return String.join(" ", result);
+        return numbers;
     }
 
-    public static String getCorrectAnswer(String quest) {
-        String[] numbers = quest.split(" ");
-        int answer = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i].equals("..")) {
-                if (i == 0) {
-                    answer = Integer.parseInt(numbers[i + 2]) - Integer.parseInt(numbers[i + 1]);
-                    answer = Integer.parseInt(numbers[i + 1]) - answer;
-                }
-                if (i > 0 && i < numbers.length - 1) {
-                    int prev = Integer.parseInt(numbers[i - 1]);
-                    int next = Integer.parseInt(numbers[i + 1]);
-                    answer = (next + prev) / 2;
-                }
-                if (i == numbers.length - 1) {
-                    answer = Integer.parseInt(numbers[i - 1]) - Integer.parseInt(numbers[i - 2]);
-                    answer += Integer.parseInt(numbers[i - 1]);
-                }
-            }
-        }
-        return Integer.toString(answer);
+    private static int getHidden(int[] question, int hidden) {
+        return question[hidden];
     }
 }
