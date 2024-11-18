@@ -7,42 +7,37 @@ public class Calc {
     public static void startCalc(int gameCount) {
         Engine.setUserName("What is the result of the expression?");
         String[][] gamedata = new String[gameCount][gameCount];
+        char[] operators = {'+', '-', '*'};
         for (var i = 0; i < gameCount; i++) {
             var operand1 = Utils.getRandomInt(-100, 100);
             var operand2 = Utils.getRandomInt(-100, 100);
-            var question = getQuestion(operand1, operand2);
+            var operator = Utils.getRandomInt(0, 2);
+            var question = getQuestion(operand1, operand2, operators[operator]);
             gamedata[i][0] = String.join(" ", question);
-            gamedata[i][1] = Integer.toString(getCorrectAnswer(operand1, operand2, question[1]));
+            gamedata[i][1] = Integer.toString(getCorrectAnswer(operand1, operand2, operators[operator]));
         }
         Engine.processGame(gamedata);
     }
 
-    private static String[] getQuestion(int op1, int op2) {
-        char[] operators = {'+', '-', '*'};
-        int amountOperation = Utils.getRandomInt(0, 2);
-        if ((op2 < 0) && operators[amountOperation] != '*') {
+    private static String[] getQuestion(int op1, int op2, char operator) {
+        if ((op2 < 0) && operator != '*') {
             op2 *= -1;
-            if (operators[amountOperation] == '-') {
-                amountOperation--;
-            }
-            if (operators[amountOperation] == '+') {
-                amountOperation++;
-            }
+            operator = operator == '-' ? '+' : '-';
         }
         return new String[]{Integer.toString(op1),
-                            Character.toString(operators[amountOperation]),
+                            Character.toString(operator),
                             Integer.toString(op2)};
     }
 
-    private static int getCorrectAnswer(int operand1, int operand2, String operator) {
+    private static int getCorrectAnswer(int operand1, int operand2, char operator) {
         int result = 0;
-        if (operator.equals("+")) {
+        if (operator == '+') {
             result = operand1 + operand2;
         }
-        if (operator.equals("-")) {
+        if (operator == '-') {
             result = operand1 - operand2;
         }
-        if (operator.equals("*")) {
+        if (operator == '*') {
             result = operand1 * operand2;
         }
         return result;
