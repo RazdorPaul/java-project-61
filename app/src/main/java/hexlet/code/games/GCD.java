@@ -8,8 +8,8 @@ public class GCD {
         Engine.setUserName("Find the greatest common divisor of given numbers.");
         String[][] gamedata = new String[gameCount][gameCount];
         for (var i = 0; i < gameCount; i++) {
-            var number1 = Utils.getRandomInt(0, 100);
-            var number2 = Utils.getRandomInt(0, 100);
+            var number1 = Utils.getRandomInt(1, 100);
+            var number2 = Utils.getRandomInt(1, 100);
             gamedata[i][0] = number1 + " " + number2;
             gamedata[i][1] = Integer.toString(getCorrectAnswer(number1, number2));
         }
