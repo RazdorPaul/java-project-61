@@ -7,10 +7,16 @@ public class Progression {
     public static void startProgression(int gameCount) {
         Engine.setUserName("What number is missing in the progression?");
         String[][] gamedata = new String[gameCount][gameCount];
-        var sizeProgression = Utils.getRandomInt(5, 10);
+        final int minSize = 5;
+        final int maxSize = 10;
+        final int minStep = 1;
+        final int maxStep = 10;
+        final int minStart = -100;
+        final int maxStart = 100;
+        var sizeProgression = Utils.getRandomInt(minSize, maxSize);
         for (var i = 0; i < gameCount; i++) {
-            var step = Utils.getRandomInt(1, 10);
-            var startValue = Utils.getRandomInt(-100, 100);
+            var step = Utils.getRandomInt(minStep, maxStep);
+            var startValue = Utils.getRandomInt(minStart, maxStart);
             var hidden = Utils.getRandomInt(0, sizeProgression - 1);
             var numbers = getProgression(startValue, step, sizeProgression);
             String[] question = new String[numbers.length];

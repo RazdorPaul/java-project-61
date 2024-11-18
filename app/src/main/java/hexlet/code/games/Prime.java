@@ -7,8 +7,10 @@ public class Prime {
     public static void startPrime(int gameCount) {
         Engine.setUserName("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         String[][] gamedata = new String[gameCount][gameCount];
+        final int minValue = 2;
+        final int maxValue = 150;
         for (var i = 0; i < gameCount; i++) {
-            var question = Utils.getRandomInt(2, 150);
+            var question = Utils.getRandomInt(minValue, maxValue);
             gamedata[i][0] = Integer.toString(question);
             gamedata[i][1] = isPrime(question) ? "yes" : "no";
         }

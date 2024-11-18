@@ -8,8 +8,9 @@ public class Even {
     public static void startEven(int countGames) {
         Engine.setUserName("Answer 'yes' if the number is even, otherwise answer 'no'.");
         String[][] gamedata = new String[countGames][countGames];
+        final int maxValue = 1000;
         for (var i = 0; i < countGames; i++) {
-            var quest = Utils.getRandomInt(0, 1000);
+            var quest = Utils.getRandomInt(0, maxValue);
             gamedata[i][0] = Integer.toString(quest);
             gamedata[i][1] = isEven(quest) ? "yes" : "no";
         }
