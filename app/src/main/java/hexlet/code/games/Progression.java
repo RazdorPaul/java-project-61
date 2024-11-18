@@ -11,7 +11,7 @@ public class Progression {
         for (var i = 0; i < gameCount; i++) {
             var step = Utils.getRandomInt(1, 10);
             var startValue = Utils.getRandomInt(-100, 100);
-            var hidden = Utils.getRandomInt(0, sizeProgression);
+            var hidden = Utils.getRandomInt(0, sizeProgression - 1);
             var numbers = getProgression(startValue, step, sizeProgression);
             String[] question = new String[numbers.length];
             for (var j = 0; j < question.length; j++) {
