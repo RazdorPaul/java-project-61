@@ -1,25 +1,19 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.utils.Utils;
 
 public class Even {
 
     public static void startEven(int countGames) {
         Engine.setUserName("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        String[][] gamedata = new String[countGames][countGames];
         for (var i = 0; i < countGames; i++) {
-            var question = getQuestion();
-            var answer = Engine.processGame(Integer.toString(question));
-            var correct = isEven(question) ? "yes" : "no";
-            if (!Engine.checkGame(answer, correct)) {
-                return;
-            }
+            var quest = Utils.getRandomInt(0, 1000);
+            gamedata[i][0] = Integer.toString(quest);
+            gamedata[i][1] = isEven(quest) ? "yes" : "no";
         }
-        Engine.winGame();
-    }
-
-    private static int getQuestion() {
-        final int maxValue = 1000;
-        return (int) (Math.random() * maxValue) + 1;
+        Engine.processGame(gamedata);
     }
 
     private static boolean isEven(int quest) {

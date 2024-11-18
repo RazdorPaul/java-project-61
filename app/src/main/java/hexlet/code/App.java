@@ -5,6 +5,7 @@ import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
+import hexlet.code.utils.Utils;
 
 public class App {
     public static void main(String[] args) {
@@ -23,7 +24,7 @@ public class App {
             System.out.println("\t" + listGame[0] + " - " + listGame[1]);
         }
         System.out.print("Your choice: ");
-        int choiceGame = Greet.getChoice();
+        int choiceGame = Utils.getChoice();
         if (choiceGame == 0) {
             return;
         }

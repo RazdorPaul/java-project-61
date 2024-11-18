@@ -1,32 +1,27 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.utils.Utils;
 
 public class Progression {
     public static void startProgression(int gameCount) {
         Engine.setUserName("What number is missing in the progression?");
-        final int sizeProgression = 10;
-        final int maxStep = 10;
-        final int minValueStart = -100;
-        final int maxValueStart = 100;
-        final int hiddenMax = 10;
+        String[][] gamedata = new String[gameCount][gameCount];
+        var sizeProgression = Utils.getRandomInt(5, 10);
         for (var i = 0; i < gameCount; i++) {
-            var start = (int) (Math.random() * (maxValueStart - minValueStart)) + minValueStart;
-            var step = (int) (Math.random() * maxStep) + 1;
-            var numbers = getProgression(start, step, sizeProgression);
+            var step = Utils.getRandomInt(1, 10);
+            var startValue = Utils.getRandomInt(-100, 100);
+            var hidden = Utils.getRandomInt(0, sizeProgression);
+            var numbers = getProgression(startValue, step, sizeProgression);
             String[] question = new String[numbers.length];
             for (var j = 0; j < question.length; j++) {
                 question[j] = Integer.toString(numbers[j]);
             }
-            var hidden = (int) (Math.random() * hiddenMax);
             question[hidden] = "..";
-            var answer = Engine.processGame(String.join(" ", question));
-            var correct = Integer.toString(getHidden(numbers, hidden));
-            if (!Engine.checkGame(answer, correct)) {
-                return;
-            }
+            gamedata[i][0] = String.join(" ", question);
+            gamedata[i][1] = Integer.toString(numbers[hidden]);
         }
-        Engine.winGame();
+        Engine.processGame(gamedata);
     }
 
     private static int[] getProgression(int start, int step, int size) {
@@ -35,9 +30,5 @@ public class Progression {
             numbers[i] = start + i * step;
         }
         return numbers;
-    }
-
-    private static int getHidden(int[] question, int hidden) {
-        return question[hidden];
     }
 }
