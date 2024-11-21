@@ -4,17 +4,17 @@ import hexlet.code.Engine;
 import hexlet.code.utils.Utils;
 
 public class Prime {
-    public static void startPrime(int gameCount) {
-        Engine.setUserName("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        String[][] gamedata = new String[gameCount][gameCount];
+    public static void startPrime() {
         final int minValue = 2;
         final int maxValue = 150;
-        for (var i = 0; i < gameCount; i++) {
+        String descript = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String[][] gamedata = new String[Engine.MAX_COUNT][Engine.DATA_SIZE];
+        for (var i = 0; i < gamedata.length; i++) {
             var question = Utils.getRandomInt(minValue, maxValue);
             gamedata[i][0] = Integer.toString(question);
             gamedata[i][1] = isPrime(question) ? "yes" : "no";
         }
-        Engine.processGame(gamedata);
+        Engine.processGame(gamedata, descript);
     }
 
     private static boolean isPrime(int question) {

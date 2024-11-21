@@ -3,19 +3,17 @@ package hexlet.code;
 import hexlet.code.utils.Utils;
 
 public class Engine {
-    private static String username;
+    public static final int MAX_COUNT = 3;
+    public static final int DATA_SIZE = 2;
 
-    public static void setUserName(String description) {
-        username = Greet.greeting();
-        System.out.println(description);
-    }
-
-    public static void processGame(String[][] data) {
+    public static void processGame(String[][] data, String descript) {
+        String username = Greet.greeting();
+        System.out.println(descript);
         for (String[] strings : data) {
             System.out.println("Question: " + strings[0]);
             System.out.print("Your answer: ");
             var answer = Utils.userInput();
-            if (!checkGame(answer, strings[1])) {
+            if (!answer.equals(strings[1])) {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + strings[1] + "'");
                 System.out.println("Let's try again, " + username + "!");
                 return;
@@ -23,9 +21,5 @@ public class Engine {
             System.out.println("Correct!");
         }
         System.out.println("Congratulations, " + username + "!");
-    }
-
-    public static boolean checkGame(String userAnswer, String correctAnswer) {
-        return userAnswer.equals(correctAnswer);
     }
 }

@@ -5,16 +5,16 @@ import hexlet.code.utils.Utils;
 
 public class Even {
 
-    public static void startEven(int countGames) {
-        Engine.setUserName("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        String[][] gamedata = new String[countGames][countGames];
+    public static void startEven() {
         final int maxValue = 1000;
-        for (var i = 0; i < countGames; i++) {
+        String descript = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String[][] gamedata = new String[Engine.MAX_COUNT][Engine.DATA_SIZE];
+        for (var i = 0; i < gamedata.length; i++) {
             var quest = Utils.getRandomInt(0, maxValue);
             gamedata[i][0] = Integer.toString(quest);
             gamedata[i][1] = isEven(quest) ? "yes" : "no";
         }
-        Engine.processGame(gamedata);
+        Engine.processGame(gamedata, descript);
     }
 
     private static boolean isEven(int quest) {

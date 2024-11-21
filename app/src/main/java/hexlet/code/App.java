@@ -9,7 +9,6 @@ import hexlet.code.utils.Utils;
 
 public class App {
     public static void main(String[] args) {
-        final int countGames = 3;
         System.out.println("Please enter the game number and press Enter. ");
         String[][] listGames = {
                 {"1", "Greet"},
@@ -24,18 +23,22 @@ public class App {
             System.out.println("\t" + listGame[0] + " - " + listGame[1]);
         }
         System.out.print("Your choice: ");
-        int choiceGame = Utils.getChoice();
-        if (choiceGame == 0) {
-            return;
-        }
-        switch (listGames[choiceGame - 1][1]) {
-            case "Greet" -> Greet.greeting();
-            case "Even" -> Even.startEven(countGames);
-            case "Calc" -> Calc.startCalc(countGames);
-            case "GCD" -> GCD.startGCD(countGames);
-            case "Progression" -> Progression.startProgression(countGames);
-            case "Prime" -> Prime.startPrime(countGames);
-            default -> System.out.println("This game is not exist!!!");
+        try {
+            int choiceGame = Integer.parseInt(Utils.userInput());
+            if (choiceGame == 0) {
+                return;
+            }
+            switch (listGames[choiceGame - 1][1]) {
+                case "Greet" -> Greet.greeting();
+                case "Even" -> Even.startEven();
+                case "Calc" -> Calc.startCalc();
+                case "GCD" -> GCD.startGCD();
+                case "Progression" -> Progression.startProgression();
+                case "Prime" -> Prime.startPrime();
+                default -> System.out.println("This game is not exist!!!");
+            }
+        } catch (Exception e) {
+            System.out.println("Your input is incorrect!");
         }
     }
 }

@@ -13,15 +13,4 @@ public class Utils {
         Scanner sc = new Scanner(System.in);
         return sc.next();
     }
-
-    public static int getChoice() {
-        Scanner sc = new Scanner(System.in);
-        int choice = 0;
-        try {
-            choice = sc.nextInt();
-        } catch (Exception e) {
-            System.out.println("Your input is incorrect!");
-        }
-        return choice;
-    }
 }
